@@ -2,14 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:kt5/models/car/car.dart';
 
 class CarTile extends StatelessWidget {
-  final car = Car(
-      brand: "Mitsubisi",
-      model: "Aron",
-      price: 342,
-      availability: true);
-  final count = 1;
-  // const CarTile({super.key, required this.car,});
-  CarTile({super.key});
+  final car;
+  final index;
+  const CarTile({super.key, required this.car, required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -24,13 +19,18 @@ class CarTile extends StatelessWidget {
         child: ListTile(
           leading: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [Text("$count")]),
-          title: Text('${car.brand} ${car.model}'),
+              children: [Text("$index")]),
+          title: Text(
+            '${car.brand} ${car.model}',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
           subtitle: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Price: ${car.price}\$",
-              style: TextStyle(color: Colors.black),),
+              Text(
+                "Price: ${car.price}\$, Color:  ${car.color}",
+                style: TextStyle(color: Colors.black),
+              ),
             ],
           ),
           trailing: car.availability == true

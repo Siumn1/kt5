@@ -22,6 +22,7 @@ class Car with _$Car {
     @JsonKey(name: 'car') required String brand,
     @JsonKey(name: 'car_model') required String model,
     @PriceConverter() required double price,
+    @JsonKey(name: 'car_color') required String color,
     required bool availability,
   }) = _Car;
 
